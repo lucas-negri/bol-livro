@@ -1,4 +1,5 @@
 ﻿using bolte.Controllers.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace bolte.Services
 {
@@ -21,6 +22,24 @@ namespace bolte.Services
 
 		public async void FindByIdAsync(int id)
 		{
+		
+		
+		}
+
+		public async Task RemoveAsync(int id) 
+		{
+
+			try
+			{
+				var obj = await _context.Genres.FindAsync(id);
+				_context.Genres.Remove(obj);
+				await _context.SaveChangesAsync();
+			}
+			catch (DbUpdateException ex)
+			{
+
+				throw new integrityException(ex.Message);
+			}
 		
 		
 		}
