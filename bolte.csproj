@@ -7,7 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Genres\Create.cshtml" />
+    <Content Remove="Genres\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Genres\Create.cshtml" />
+    <Compile Include="Views\Genres\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
   </ItemGroup>
 
 </Project>
