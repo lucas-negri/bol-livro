@@ -1,10 +1,14 @@
 ﻿using bolte.Controllers.Data;
-<<<<<<< HEAD
+
+
 using bolte.Models;
 using System.Data;
 =======
 using Microsoft.EntityFrameworkCore;
->>>>>>> 8fb9162d746dd0a6cf99d3cd00e7318745b4f1dc
+
+=======
+using Microsoft.EntityFrameworkCore;
+
 
 namespace bolte.Services
 {
@@ -31,7 +35,8 @@ namespace bolte.Services
 		
 		}
 
-<<<<<<< HEAD
+
+
         // POST: Genres/Edit/x
         public async Task UpdateAsync(Genre genre)
         {
@@ -56,6 +61,7 @@ namespace bolte.Services
         }
 ```
 =======
+=======
 		public async Task RemoveAsync(int id) 
 		{
 
@@ -74,6 +80,7 @@ namespace bolte.Services
 		
 		}
 
->>>>>>> 8fb9162d746dd0a6cf99d3cd00e7318745b4f1dc
+746dd0a6cf99d3cd00e7318745b4f1dc
+=======
 	}
 }
