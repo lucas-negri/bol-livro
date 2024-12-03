@@ -9,6 +9,36 @@ namespace Bookstore2.Controllers
 	public class GenresController : Controller
 	{
 		public IActionResult Index()
+
+
+		{
+
+			return View(_service.FindAll());
+		}
+
+		public IActionResult Create()
+		{
+			return View();
+		}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult Create()
+=======
+
+		{
+			List<Genre> genres = new List<Genre>
+			{
+				new Genre(1, "Drama"),
+				new Genre(2, "Comédia"),
+				new Genre(3, "Terror"),
+				new Genre(4, "Ação"),
+				new Genre(5, "Fantasia")
+			};
+			return View(genres);
+		}
+		public async Task<IActionResult> Delete(int? id)
+		{
+=======
 		{
 			List<Genre> genres = new List<Genre>
 			{
@@ -26,10 +56,25 @@ namespace Bookstore2.Controllers
 		// Método DELETE
 		public async Task<IActionResult> Delete(int? id)
 		{
+
 			if (id is null)
 			{
 				return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
 			}
+
+=======
+
+
+		// Método DELETE
+		public async Task<IActionResult> Delete(int? id)
+		{
+			if (id is null)
+			{
+				return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
+			}
+
+
+=======
 
 			var obj = await _service.FindByIdAsync(id.Value);
 			if (obj is null)
@@ -49,5 +94,6 @@ namespace Bookstore2.Controllers
 			return View(viewModel);
 		}
 	}
-}
+=======
+
 

@@ -1,5 +1,14 @@
 ﻿using bolte.Controllers.Data;
+
+
+using bolte.Models;
+using System.Data;
+=======
 using Microsoft.EntityFrameworkCore;
+
+=======
+using Microsoft.EntityFrameworkCore;
+
 
 namespace bolte.Services
 {
@@ -26,6 +35,33 @@ namespace bolte.Services
 		
 		}
 
+
+
+        // POST: Genres/Edit/x
+        public async Task UpdateAsync(Genre genre)
+        {
+            bool hasAny = await _context.Genres.AnyAsync(x => x.Id == genre.Id);
+
+            if (!hasAny)
+            {
+                throw new NotFoundException("Id não encontrado");
+            }
+            // Tenta atualizar
+            try
+            {
+                _context.Update(genre);
+
+                await _context.SaveChangesAsync();
+            }
+            
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new DbConcorrencyException(ex.Message);
+            }
+        }
+```
+=======
+=======
 		public async Task RemoveAsync(int id) 
 		{
 
@@ -44,5 +80,7 @@ namespace bolte.Services
 		
 		}
 
+746dd0a6cf99d3cd00e7318745b4f1dc
+=======
 	}
 }
